@@ -36,12 +36,13 @@ def sendtosheet(cols):
     return
 
 
-print('You data will split based on these values {} and create {} files or sheets based on next selection. If you are ready to proceed please type "Y" and hit enter. Hit "N" to exit.'.format(', '.join(cols), len(cols)))
+print('Your data will split based on these values {} and create {} files or sheets based on next selection. If you are ready to proceed please type "Y" and hit enter. Hit "N" to exit.'.format(', '.join(cols), len(cols)))
+
 while True:
     x = input('Ready to Proceed (Y/N): ').lower()
     if x == 'y':
         while True:
-            s = input('Split into different Sheets or File (S/F): ').lower()
+            s = input('Split into different Sheets or Files (S/F): ').lower()
             if s == 'f':
                 sendtofile(cols)
                 break
