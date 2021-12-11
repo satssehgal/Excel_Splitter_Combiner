@@ -16,7 +16,7 @@ cols = list(set(df[colpick].values))
 
 def sendtofile(cols):
     for i in cols:
-        df[df[colpick] == i].to_excel("{}/{}.xlsx".format(pth, i), sheet_name=i, index=False)
+        df[df[colpick] == i].to_excel("{}/{}.xlsx".format(pth, i), sheet_name=i, index=False, encoding='utf-8')
     print('\nCompleted')
     print('Thanks for using this program.')
     return

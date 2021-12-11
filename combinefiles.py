@@ -12,5 +12,5 @@ for f in files:
     data = pd.read_excel(f)
     df = df.append(data)
 
-df.to_excel(newfile, sheet_name='combined', index=False)
+df.to_excel(newfile, sheet_name='combined', index=False, encoding='utf-8')
 print('Completed')
