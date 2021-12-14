@@ -19,7 +19,10 @@ if os.path.isfile(myfile):
 
         if column_name in cols_name:
             cols = list(set(df[column_name].values))
-            print('Your data will split based on these values {} and create {} files or sheets based on next selection. If you are ready to proceed please type "Y" and hit enter. Hit "N" to exit.'.format(', '.join(cols), len(cols)))
+            print(
+                'Your data will split based on these values {} and create {} files or sheets based on next selection.'
+                ' If you are ready to proceed please type "Y" and hit enter. Hit "N" to exit.'\
+                    .format(', '.join(cols), len(cols)))
 
         else:
             print(f"The Column name was not correct. Please try again: {column_name}")
@@ -33,8 +36,6 @@ if os.path.isfile(myfile):
 else:
     print(f"The file does't exists. Please try again with a correct file path: {myfile}")
     exit()
-
-
 
 
 def sendtofile(cols):
@@ -57,7 +58,6 @@ def sendtosheet(cols):
     print('\nCompleted')
     print('Thanks for using this program.')
     return
-
 
 
 while True:
