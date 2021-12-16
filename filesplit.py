@@ -8,7 +8,7 @@ myfile = input('Please type The Excel file path with its extension [.xlsx]:   ')
 if os.path.isfile(myfile):
     myfile_root, myfile_extension = os.path.splitext(myfile)
 
-    if myfile_extension == '.xls' or myfile_extension == '.xlsx':
+    if myfile_extension == '.xlsx':
         file = myfile
         filename, extension = os.path.splitext(file)
         pth = os.path.dirname(file)
@@ -30,7 +30,7 @@ if os.path.isfile(myfile):
 
 
     else:
-        print(f"The file you chose was not an Excel file. Please try again: {myfile}")
+        print(f"The file you chose was not a [.xlsx] Excel file. Please try again: {myfile}")
         exit()
 
 else:
