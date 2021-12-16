@@ -3,7 +3,7 @@ import os
 from openpyxl import load_workbook
 from shutil import copyfile
 
-myfile = input('Please type The Excel file path with its extension [.xls] or [.xlsx]:   ')
+myfile = input('Please type The Excel file path with its extension [.xlsx]:   ')
 
 if os.path.isfile(myfile):
     myfile_root, myfile_extension = os.path.splitext(myfile)
