@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import time
 from openpyxl import load_workbook
 from shutil import copyfile
 
@@ -12,10 +13,13 @@ if os.path.isfile(myfile):
         file = myfile
         filename, extension = os.path.splitext(file)
         pth = os.path.dirname(file)
-        newfile = os.path.join(filename + '_2' + extension)
+        file_time_tosheet = time.strftime("%Y%m%d-%H%M%S")
+        newfile = os.path.join(filename + '_' + file_time_tosheet + extension)
         df = pd.read_excel(file)
-        column_name = input('Type the name of Column to split by: ')
         cols_name = list(set(df))
+        print(f'Columns name(s): {cols_name}')
+        column_name = input('Type the name of Column to split by: ')
+
 
         if column_name in cols_name:
             cols = list(set(df[column_name].values))
@@ -39,8 +43,10 @@ else:
 
 
 def sendtofile(cols):
+    file_time_tofile = time.strftime("%Y%m%d-%H%M%S")
     for i in cols:
-        df[df[column_name] == i].to_excel("{}/{}.xlsx".format(pth, i), sheet_name=i, index=False, encoding='utf-8')
+        exact_filename = f'{i}_{file_time_tofile}'
+        df[df[column_name] == i].to_excel("{}/{}.xlsx".format(pth, exact_filename), sheet_name=i, index=False, encoding='utf-8')
     print('\nCompleted')
     print('Thanks for using this program.')
     return
@@ -52,7 +58,7 @@ def sendtosheet(cols):
         writer = pd.ExcelWriter(newfile, engine='openpyxl')
         for myname in cols:
             mydf = df.loc[df[column_name] == myname]
-            mydf.to_excel(writer, sheet_name=myname, index=False)
+            mydf.to_excel(writer, sheet_name=myname, index=False, encoding='utf-8')
         writer.save()
 
     print('\nCompleted')
